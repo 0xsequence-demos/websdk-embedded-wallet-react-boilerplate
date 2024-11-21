@@ -11,7 +11,7 @@ const walletConnectId = import.meta.env.VITE_WALLET_CONNECT_ID;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const config: any = createConfig("waas", {
   projectAccessKey: projectAccessKey,
-  chainIds: [1, 421614],
+  chainIds: [1, 421614, 13473],
   defaultChainId: 421614,
   appName: "Kit Starter",
   waasConfigKey: waasConfigKey,

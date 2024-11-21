@@ -35,7 +35,10 @@ const TestSendTransaction = (props: { chainId: number }) => {
 
   const runSendTransaction = async () => {
     const [account] = await walletClient!.getAddresses();
-    sendTransaction({ to: account, value: BigInt(0), gas: null });
+    // The gas limit defines the maximum amount of gas that can be used for a transaction.
+    // If the transaction requires more gas than the set limit, it will fail.
+    // Posible sendTransaction values: { to: account, value: BigInt(0), gas: null }
+    sendTransaction({ to: account, value: BigInt(0) });
   };
 
   return (
