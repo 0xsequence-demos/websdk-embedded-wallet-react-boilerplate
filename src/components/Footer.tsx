@@ -7,7 +7,7 @@ export const Footer = () => {
         Want to learn more? Read the{" "}
         <a
           href={
-            "https://docs.sequence.xyz/solutions/wallets/sequence-kit/overview/"
+            "https://docs.sequence.xyz/api/builder/endpoints/#tag/default/POST/rpc/Builder/"
           }
           target="_blank"
           rel="noreferrer "

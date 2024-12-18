@@ -5,9 +5,9 @@ const Connector = () => {
 
   return (
     <>
-      <p>Not connected</p>
+      <p>Not registered yet?</p>
       <div className="card">
-        <button onClick={() => setOpenConnectModal(true)}>Connect</button>
+        <button onClick={() => setOpenConnectModal(true)}>Register Now</button>
       </div>
     </>
   );

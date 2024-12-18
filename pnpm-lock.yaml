@@ -11,6 +11,9 @@ importers:
       0xsequence:
         specifier: 2.1.2
         version: 2.1.2(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))
+      '@0xsequence/builder':
+        specifier: ^2.1.2
+        version: 2.2.2
       '@0xsequence/design-system':
         specifier: ^1.8.0
         version: 1.8.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -110,6 +113,9 @@ packages:
     resolution: {integrity: sha512-AglOU1HKKRWHtMM7U1eMTXoVD7/R802M1U/m2nSTkoFh2eYT5yQA8212r2I3+qiO2XiZOfFv3sEgC52eBRyYKw==}
     peerDependencies:
       ethers: '>=6'
+
+  '@0xsequence/builder@2.2.2':
+    resolution: {integrity: sha512-r3lVjfQueL5ckmbvgwRonSbIc3CnK8q2xL4iwTZ+RZsN3DfU2/2J8X4mLK72hhSlodJyGr1fIHNW5jq6pNpmqg==}
 
   '@0xsequence/core@2.1.2':
     resolution: {integrity: sha512-3HLcevO37RN2FsrBxu3XAan31oahEOOkHl8FVk9QJKXbcWKGILcG1zjhdj7Q6Ql2DUPO/DMUFXluu678OfGPsA==}
@@ -3883,6 +3889,8 @@ snapshots:
       '@0xsequence/utils': 2.1.2(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))
       '@0xsequence/wallet': 2.1.2(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))
       ethers: 6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+
+  '@0xsequence/builder@2.2.2': {}
 
   '@0xsequence/core@2.1.2(ethers@6.13.4(bufferutil@4.0.8)(utf-8-validate@5.0.10))':
     dependencies:

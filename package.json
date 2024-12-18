@@ -17,6 +17,7 @@
     "@0xsequence/indexer": "^2.1.2",
     "@0xsequence/kit": "^4.4.4",
     "@0xsequence/network": "^2.1.2",
+    "@0xsequence/builder": "^2.1.2",
     "@tanstack/react-query": "^5.61.5",
     "ethers": "6.13.4",
     "react": "^18.3.1",
