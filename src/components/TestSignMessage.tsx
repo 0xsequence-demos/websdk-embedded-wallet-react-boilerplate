@@ -40,6 +40,7 @@ const TestSignMessage = () => {
   return (
     <div className="grid grid-cols-1 grid-rows-1">
       <Form
+        name="signMessage"
         schema={schemaSignMessage}
         onAction={handleSignMessage}
         data-visible={!values?.signature}

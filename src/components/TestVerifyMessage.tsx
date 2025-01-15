@@ -98,15 +98,16 @@ const TestVerifyMessage = (props: { chainId: number }) => {
     }
   };
 
-  const value = useStoreData<"valid" | "invalid" | "idle" | "pending">(
-    "verifyMessage",
-  );
+  const value =
+    useStoreData<"valid" | "invalid" | "idle" | "pending">("verifyMessage") ||
+    "idle";
 
   const { updateFields } = useForm();
 
   return (
     <div className="contents-layered">
       <Form
+        name="verifyMessage"
         schema={schemaVerifyMessage}
         onAction={handleVerifyMessage}
         data-visible={value === "idle"}

@@ -61,7 +61,7 @@ const TestSendTransaction = (props: { chainId: number }) => {
           </p>
         </div>
 
-        <Form onAction={handleSendTransaction}>
+        <Form name="sendTransaction" onAction={handleSendTransaction}>
           <Button
             type="submit"
             variant="primary"
