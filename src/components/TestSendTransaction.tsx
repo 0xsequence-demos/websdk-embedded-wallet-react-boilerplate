@@ -1,10 +1,14 @@
-import { Box, Text } from "@0xsequence/design-system";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Chain } from "viem";
 import { useSendTransaction, useWalletClient } from "wagmi";
 import chains from "../constants";
-import CardButton from "./CardButton";
-import ErrorToast from "./ErrorToast";
+import {
+  Button,
+  Card,
+  Form,
+  FormHandler,
+  useStoreData,
+} from "boilerplate-design-system";
 
 const TestSendTransaction = (props: { chainId: number }) => {
   const { data: walletClient } = useWalletClient();
@@ -12,10 +16,9 @@ const TestSendTransaction = (props: { chainId: number }) => {
   const [network, setNetwork] = useState<Chain | null>(null);
   const {
     data: txnData,
-    sendTransaction,
-    isPending: isPendingSendTxn,
+    sendTransactionAsync,
+    isPending,
     error,
-    reset,
   } = useSendTransaction();
   const [lastTransaction, setLastTransaction] = useState<string | null>(null);
 
@@ -33,39 +36,65 @@ const TestSendTransaction = (props: { chainId: number }) => {
     }
   }, [chainId]);
 
-  const runSendTransaction = async () => {
+  const handleSendTransaction: FormHandler<unknown> = async () => {
     const [account] = await walletClient!.getAddresses();
-    // The gas limit defines the maximum amount of gas that can be used for a transaction.
-    // If the transaction requires more gas than the set limit, it will fail.
-    // Posible sendTransaction values: { to: account, value: BigInt(0), gas: null }
-    sendTransaction({ to: account, value: BigInt(0) });
+    const data = await sendTransactionAsync({
+      to: account,
+      value: BigInt(0),
+      gas: null,
+    });
+
+    return [{ data }, true];
   };
+
+  const values = useStoreData<string>("sendTransaction");
+
+  const lastTransactionNetwork = useMemo(() => network, [lastTransaction]);
 
   return (
     <>
-      <CardButton
-        title="Send transaction"
-        description="Send a transaction with your wallet"
-        isPending={isPendingSendTxn}
-        onClick={runSendTransaction}
-      />
-      {lastTransaction && (
-        <Box display="flex" flexDirection="column" gap="4">
-          <Text>Last transaction hash: {lastTransaction}</Text>
-          <button>
-            <a
-              target="_blank"
-              href={`${network?.blockExplorers?.default?.url}/tx/${lastTransaction}`}
-              rel="noreferrer"
-            >
-              Click to view on {network?.name}
-            </a>
-          </button>
-        </Box>
-      )}
-      {error && (
-        <ErrorToast message={error?.message} onClose={reset} duration={7000} />
-      )}
+      <Card className="flex flex-col gap-4">
+        <div>
+          <span className="text-17">Send transaction</span>
+          <p className="text-14 text-grey-100">
+            Send a transaction with your wallet
+          </p>
+        </div>
+
+        <Form onAction={handleSendTransaction}>
+          <Button
+            type="submit"
+            variant="primary"
+            subvariants={{ padding: "comfortable" }}
+            className="self-start disabled:opacity-50 contents-layered"
+            disabled={isPending}
+          >
+            <span data-visible={!isPending}>Send Test Transaction</span>
+            <span data-visible={isPending}>Sending...</span>
+          </Button>
+        </Form>
+      </Card>
+
+      {lastTransaction ? (
+        <Card className="flex flex-col gap-4">
+          <dl className="flex flex-col gap-4">
+            <div className="flex flex-col">
+              <dt className="text-14 text-grey-100">Last transaction hash</dt>
+              <dd className="w-full break-words font-mono text-13 ">
+                {values}
+              </dd>
+            </div>
+          </dl>
+          <a
+            target="_blank"
+            href={`${lastTransactionNetwork?.blockExplorers?.default?.url}/tx/${lastTransaction}`}
+            rel="noreferrer noopener"
+            className="underline text-14"
+          >
+            View on {lastTransactionNetwork?.name}
+          </a>
+        </Card>
+      ) : null}
     </>
   );
 };
