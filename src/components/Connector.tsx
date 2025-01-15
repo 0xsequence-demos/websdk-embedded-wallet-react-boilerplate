@@ -1,15 +1,19 @@
 import { useOpenConnectModal } from "@0xsequence/kit";
+import { Button, Card } from "boilerplate-design-system";
 
 const Connector = () => {
   const { setOpenConnectModal } = useOpenConnectModal();
 
   return (
-    <>
-      <p>Not connected</p>
-      <div className="card">
-        <button onClick={() => setOpenConnectModal(true)}>Connect</button>
-      </div>
-    </>
+    <Card variant="none">
+      <Button
+        variant="primary"
+        subvariants={{ padding: "comfortable" }}
+        onClick={() => setOpenConnectModal(true)}
+      >
+        Connect
+      </Button>
+    </Card>
   );
 };
 

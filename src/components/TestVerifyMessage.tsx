@@ -1,126 +1,208 @@
+import { Spinner } from "@0xsequence/design-system";
 import {
-  Box,
+  Form,
+  Button,
+  Field,
+  Input,
+  Label,
   Card,
-  Collapsible,
-  Spinner,
-  Text,
-  TextInput,
-} from "@0xsequence/design-system";
-import { ChangeEvent, useState } from "react";
-import { Address, Signature } from "viem";
+  FormErrors,
+  FieldError,
+  Svg,
+  useStoreData,
+  setStoreData,
+  useForm,
+} from "boilerplate-design-system";
+
 import { usePublicClient } from "wagmi";
+import { z } from "zod";
+// import { type Signature } from "viem";
+import type { FormHandler } from "boilerplate-design-system";
+// Define Hex as a string with a hex pattern
+const Hex = z.string().regex(/^0x[0-9a-fA-F]+$/, "Invalid hex format");
+
+// SignatureLegacy schema
+const SignatureLegacySchema = z.object({
+  r: Hex,
+  s: Hex,
+  v: z.bigint(),
+});
+
+// Signature schema with OneOf variations
+const SignatureSchema = z.union([
+  SignatureLegacySchema,
+  z.object({
+    r: Hex,
+    s: Hex,
+    v: z.bigint(),
+    yParity: z.number().optional(),
+  }),
+  z.object({
+    r: Hex,
+    s: Hex,
+    v: z.bigint().optional(),
+    yParity: z.number(),
+  }),
+]);
+
+// Full form data schema
+const schemaVerifyMessage = z.object({
+  address: z
+    .string()
+    .regex(/^0x[0-9a-fA-F]{40}$/, "Invalid address format (0x...)"),
+  message: z.string().min(1, { message: "Please include a message" }),
+  signature: z.union([
+    Hex, // Hex string starting with "0x"
+    z.instanceof(Uint8Array),
+    SignatureSchema, // Signature object
+  ]),
+});
+
+// type ReturnData = {
+//   address: `0x${string}`;
+//   message: string;
+//   signature: `0x${string}` | Uint8Array | Signature;
+// };
 
 const TestVerifyMessage = (props: { chainId: number }) => {
   const { chainId } = props;
-  const [message, setMessage] = useState<string>();
-  const [address, setAddress] = useState<Address>();
-  const [signature, setSignature] = useState<Signature>();
   const publicClient = usePublicClient({ chainId });
-  const [isValidSignature, setIsValidSignature] = useState<boolean>(false);
-  const [validatedSignature, setValidatedSignature] = useState<boolean>(false);
-  const [validatingSignature, setValidatingSignature] =
-    useState<boolean>(false);
 
-  const onChangeMessage = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setMessage(value);
-  };
+  // const values = useStoreData<{ signature: string; message: string }>(
+  //   "signMessage",
+  // );
 
-  const onChangeAddress = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setAddress(value as Address);
-  };
+  const handleVerifyMessage: FormHandler<Record<string, any>> = async (
+    _,
+    data,
+  ) => {
+    const { address, message, signature } = data;
 
-  const onChangeSignature = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setSignature(value as unknown as Signature);
-  };
-
-  const verifyMessage = async () => {
     if (!(address && message && signature)) return;
+
+    /** Verify the message */
     try {
-      setValidatingSignature(true);
-      setValidatedSignature(false);
-      const result = await publicClient!.verifyMessage({
+      setStoreData("verifyMessage", "pending");
+
+      const isValid = await publicClient!.verifyMessage({
         address,
         message,
         signature,
       });
-      setValidatedSignature(true);
-      setIsValidSignature(result);
-      setValidatingSignature(false);
-    } catch (error) {
-      console.error(error);
-      setIsValidSignature(false);
-      setValidatingSignature(false);
+
+      const validMessage = isValid ? "valid" : "invalid";
+
+      return [{ data: validMessage }, true];
+    } catch {
+      return [{ data: "idle" }, true];
     }
   };
 
+  const value = useStoreData<"valid" | "invalid" | "idle" | "pending">(
+    "verifyMessage",
+  );
+
+  const { updateFields } = useForm();
+
   return (
-    <>
-      <Collapsible
-        label="Verify signature"
-        display="flex"
-        flexDirection="column"
-        gap="8"
+    <div className="contents-layered">
+      <Form
+        schema={schemaVerifyMessage}
+        onAction={handleVerifyMessage}
+        data-visible={value === "idle"}
+        className="flex flex-col gap-4"
       >
-        <Box display="flex" flexDirection="column" gap="8" marginBottom="8">
-          <TextInput
-            name="Address"
-            controls="Address"
-            numeric={false}
-            onChange={onChangeAddress}
-          />
-          <TextInput
-            name="Message"
-            controls="Message"
-            numeric={false}
-            onChange={onChangeMessage}
-          />
-          <TextInput
-            name="Signature"
-            controls="Signature"
-            numeric={false}
-            onChange={onChangeSignature}
-          />
-          <button
-            onClick={verifyMessage}
-            type="button"
-            disabled={validatingSignature}
-            className="margin-left-auto"
+        <FormErrors />
+        <Field name="address">
+          <Label>Address</Label>
+          <Input className="w-full" />
+          <FieldError />
+        </Field>
+
+        <Field name="message">
+          <Label>Message</Label>
+          <Input className="w-full" />
+          <FieldError />
+        </Field>
+
+        <Field name="signature">
+          <Label>Signature</Label>
+          <Input className="w-full" />
+          <FieldError />
+        </Field>
+
+        <Button
+          type="submit"
+          variant="primary"
+          subvariants={{ padding: "comfortable" }}
+          className="self-start"
+        >
+          Verify
+        </Button>
+      </Form>
+
+      <Card className="flex flex-col" data-visible={value !== "idle"}>
+        <div className="flex flex-1 items-center justify-center flex-col gap-4">
+          <VerificationStatus isValidSignature={value} />
+          <Button
+            variant="tertiary"
+            onClick={() => {
+              updateFields("verifyMessage", {
+                address: "",
+                message: "",
+                signature: "",
+              });
+              setStoreData("verifyMessage", "idle");
+            }}
           >
-            Verify
-          </button>
-        </Box>
-        <Card>
-          {validatedSignature ? (
-            <Box
-              display="flex"
-              flexDirection="column"
-              gap="8"
-              style={{ maxWidth: "700px" }}
-            >
-              <Text className="break-word">
-                Signature is: {isValidSignature ? "Valid" : "Invalid"}
-              </Text>
-            </Box>
-          ) : (
-            <Box>
-              <Text>Nothing verified yet</Text>
-            </Box>
-          )}
-          {validatingSignature && (
-            <Box gap="2" alignItems="center" marginTop="4">
-              <Spinner size="sm" />
-              <Text variant="small" color="text50">
-                Pending...
-              </Text>
-            </Box>
-          )}
-        </Card>
-      </Collapsible>
-    </>
+            Reset
+          </Button>
+        </div>
+      </Card>
+    </div>
   );
 };
+
+function VerificationStatus({
+  isValidSignature,
+}: {
+  isValidSignature: "valid" | "invalid" | "idle" | "pending";
+}) {
+  switch (isValidSignature) {
+    case "idle":
+      return <span>Nothing verified yet</span>;
+
+    case "pending":
+      return (
+        <span className="gap-2 flex items-center">
+          <Spinner size="sm" />
+          Verifying...
+        </span>
+      );
+
+    case "valid":
+      return (
+        <span className="flex gap-2 items-center">
+          <span className="flex items-center justify-center size-6 rounded-full bg-indigo-500">
+            <Svg name="Checkmark" className="size-4" />
+          </span>
+          Signature is valid
+        </span>
+      );
+
+    case "invalid":
+      return (
+        <span className="flex gap-2 items-center">
+          <span className="flex items-center justify-center size-6 rounded-full bg-orange-500">
+            <Svg name="Close" className="size-4" />
+          </span>
+          Signature is invalid
+        </span>
+      );
+
+    default:
+      return <>Signature validity is unknown</>;
+  }
+}
 
 export default TestVerifyMessage;
