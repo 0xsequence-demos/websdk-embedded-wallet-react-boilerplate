@@ -13,10 +13,10 @@ import {
   setStoreData,
   useForm,
 } from "boilerplate-design-system";
-import { useState } from "react";
+
 import { usePublicClient } from "wagmi";
 import { z } from "zod";
-import { type Signature } from "viem";
+// import { type Signature } from "viem";
 import type { FormHandler } from "boilerplate-design-system";
 // Define Hex as a string with a hex pattern
 const Hex = z.string().regex(/^0x[0-9a-fA-F]+$/, "Invalid hex format");
@@ -58,11 +58,11 @@ const schemaVerifyMessage = z.object({
   ]),
 });
 
-type ReturnData = {
-  address: `0x${string}`;
-  message: string;
-  signature: `0x${string}` | Uint8Array | Signature;
-};
+// type ReturnData = {
+//   address: `0x${string}`;
+//   message: string;
+//   signature: `0x${string}` | Uint8Array | Signature;
+// };
 
 const TestVerifyMessage = (props: { chainId: number }) => {
   const { chainId } = props;
