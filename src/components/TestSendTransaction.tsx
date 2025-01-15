@@ -36,7 +36,7 @@ const TestSendTransaction = (props: { chainId: number }) => {
     }
   }, [chainId]);
 
-  const handleSendTransaction: FormHandler<unknown> = async () => {
+  const handleSendTransaction: FormHandler = async () => {
     const [account] = await walletClient!.getAddresses();
     const data = await sendTransactionAsync({
       to: account,
