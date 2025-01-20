@@ -27,8 +27,8 @@ importers:
         specifier: ^5.59.0
         version: 5.64.2(react@18.3.1)
       boilerplate-design-system:
-        specifier: github:0xsequence-demos/boilerplate-design-system#d9f027e
-        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.3)
+        specifier: github:0xsequence-demos/boilerplate-design-system#6277cbe
+        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/6277cbe(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.3)
       ethers:
         specifier: 6.13.3
         version: 6.13.3(bufferutil@4.0.8)(utf-8-validate@5.0.10)
@@ -2155,8 +2155,8 @@ packages:
   bn.js@5.2.1:
     resolution: {integrity: sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==}
 
-  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e:
-    resolution: {tarball: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e}
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/6277cbe:
+    resolution: {tarball: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/6277cbe}
     version: 0.0.0
     peerDependencies:
       react: ^18
@@ -7272,7 +7272,7 @@ snapshots:
 
   bn.js@5.2.1: {}
 
-  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.3):
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/6277cbe(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.3):
     dependencies:
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(framer-motion@11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-select': 2.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
