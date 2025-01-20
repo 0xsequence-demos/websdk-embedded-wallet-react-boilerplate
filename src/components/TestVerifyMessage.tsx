@@ -92,9 +92,9 @@ const TestVerifyMessage = (props: { chainId: number }) => {
 
       const validMessage = isValid ? "valid" : "invalid";
 
-      return [{ data: validMessage }, true];
+      return { data: validMessage, persist: true };
     } catch {
-      return [{ data: "idle" }, true];
+      return { data: "idle", persist: true };
     }
   };
 

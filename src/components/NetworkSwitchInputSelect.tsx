@@ -1,4 +1,4 @@
-import { InputSelect } from "boilerplate-design-system";
+import { InputSelect, setStoreData } from "boilerplate-design-system";
 import { useSwitchChain } from "wagmi";
 
 const SEQUENCE_ASSETS_URL_PREFIX = "https://assets.sequence.info/";
@@ -22,6 +22,8 @@ export function NetworkSwitchInputSelect({ chainId }: { chainId: string }) {
       await switchChainAsync({ chainId: formmatedChainId });
     };
     onSwitchChain(value);
+
+    setStoreData("network", value);
   }
 
   return (

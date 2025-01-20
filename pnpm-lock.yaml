@@ -12,8 +12,13 @@ importers:
         specifier: 2.2.7
         version: 2.2.7(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@0xsequence/design-system':
+<<<<<<< HEAD
         specifier: ^1.9.0
         version: 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+=======
+        specifier: ^1.7.8
+        version: 1.8.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(framer-motion@8.5.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+>>>>>>> af098eb (Remove test currency button, show error message)
       '@0xsequence/indexer':
         specifier: ^2.2.7
         version: 2.2.7
@@ -27,8 +32,13 @@ importers:
         specifier: ^5.64.2
         version: 5.64.2(react@18.3.1)
       boilerplate-design-system:
+<<<<<<< HEAD
         specifier: github:0xsequence-demos/boilerplate-design-system#3127abd
         version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/3127abd(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.3)
+=======
+        specifier: github:0xsequence-demos/boilerplate-design-system#d9f027e
+        version: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.2)
+>>>>>>> af098eb (Remove test currency button, show error message)
       ethers:
         specifier: 6.13.5
         version: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -2044,8 +2054,8 @@ packages:
   bn.js@5.2.1:
     resolution: {integrity: sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==}
 
-  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/3127abd:
-    resolution: {tarball: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/3127abd}
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e:
+    resolution: {tarball: https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e}
     version: 0.0.0
     peerDependencies:
       react: ^18
@@ -3076,6 +3086,12 @@ packages:
   motion-dom@11.18.1:
     resolution: {integrity: sha512-g76KvA001z+atjfxczdRtw/RXOM3OMSdd1f4DL77qCTF/+avrRJiawSG4yDibEQ215sr9kpinSlX2pCTJ9zbhw==}
 
+<<<<<<< HEAD
+=======
+  motion-dom@11.18.1:
+    resolution: {integrity: sha512-g76KvA001z+atjfxczdRtw/RXOM3OMSdd1f4DL77qCTF/+avrRJiawSG4yDibEQ215sr9kpinSlX2pCTJ9zbhw==}
+
+>>>>>>> af098eb (Remove test currency button, show error message)
   motion-utils@11.18.1:
     resolution: {integrity: sha512-49Kt+HKjtbJKLtgO/LKj9Ld+6vw9BjH5d9sc40R/kVyH8GLAXgT42M2NnuPcJNuA3s9ZfZBUcwIgpmZWGEE+hA==}
 
@@ -4185,6 +4201,7 @@ snapshots:
       '@0xsequence/utils': 2.2.7(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
+<<<<<<< HEAD
   '@0xsequence/design-system@1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-aspect-ratio': 1.1.1(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4201,6 +4218,23 @@ snapshots:
       '@radix-ui/react-toast': 1.2.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tooltip': 1.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-visually-hidden': 1.1.1(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+=======
+  '@0xsequence/design-system@1.8.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(framer-motion@11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-aspect-ratio': 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-checkbox': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-collapsible': 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-dialog': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-dropdown-menu': 2.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-progress': 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-radio-group': 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-select': 2.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-switch': 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-tabs': 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-toast': 1.2.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-tooltip': 1.1.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-visually-hidden': 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+>>>>>>> af098eb (Remove test currency button, show error message)
       framer-motion: 11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -6982,12 +7016,21 @@ snapshots:
 
   bn.js@5.2.1: {}
 
+<<<<<<< HEAD
   boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/3127abd(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.3):
     dependencies:
       '@0xsequence/design-system': 1.9.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(framer-motion@11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-select': 2.1.4(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tooltip': 1.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@svgr/cli': 8.1.0(typescript@5.7.3)
+=======
+  boilerplate-design-system@https://codeload.github.com/0xsequence-demos/boilerplate-design-system/tar.gz/d9f027e(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sonner@1.7.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.7.2):
+    dependencies:
+      '@0xsequence/design-system': 1.8.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(framer-motion@11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-select': 2.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-tooltip': 1.1.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@svgr/cli': 8.1.0(typescript@5.7.2)
+>>>>>>> af098eb (Remove test currency button, show error message)
       clsx: 2.1.1
       framer-motion: 11.18.2(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
@@ -8169,6 +8212,13 @@ snapshots:
     dependencies:
       motion-utils: 11.18.1
 
+<<<<<<< HEAD
+=======
+  motion-dom@11.18.1:
+    dependencies:
+      motion-utils: 11.18.1
+
+>>>>>>> af098eb (Remove test currency button, show error message)
   motion-utils@11.18.1: {}
 
   motion@10.16.2:
