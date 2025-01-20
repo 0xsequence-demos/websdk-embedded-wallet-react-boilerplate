@@ -25,7 +25,7 @@ const TestSignMessage = () => {
     if (!message) return;
 
     const signature = await signMessageAsync({ message }).then((res) => res);
-    return [{ data: { signature, message } }, true];
+    return { data: { signature, message }, persist: true };
   };
 
   // Get the session storage for signMessage (set by form)

@@ -1,6 +1,6 @@
 import { useAccount } from "wagmi";
 
-import Connector from "../components/Connector";
+import Connector from "./Connector";
 import MainConnected from "./MainConnected";
 import { SequenceBoilerplate } from "boilerplate-design-system";
 

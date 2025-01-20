@@ -2,7 +2,6 @@ import { useAccount, useDisconnect } from "wagmi";
 import TestSignMessage from "../components/TestSignMessage";
 import TestVerifyMessage from "../components/TestVerifyMessage";
 import TestSendTransaction from "../components/TestSendTransaction";
-import { Missing } from "../components/Missing";
 import { NetworkSwitchInputSelect } from "../components/NetworkSwitchInputSelect";
 
 import {
@@ -11,13 +10,11 @@ import {
   Card,
   SegmentedInput,
   Input,
-  ButtonLink,
-  Svg,
   Label,
   Divider,
   ShowAddressWithDisconnect,
 } from "boilerplate-design-system";
-import { useNativeBalance } from "../components/ChainInfo/NativeBalance";
+import { useNativeBalance } from "../components/NativeBalance";
 
 const MainConnected = () => {
   const { address, chain, chainId } = useAccount();
@@ -25,14 +22,18 @@ const MainConnected = () => {
 
   const balance = useNativeBalance({ chain, address });
 
-  if (!address) {
-    return <Missing>an address</Missing>;
-  }
-  if (!chain) {
-    return <Missing>a chain</Missing>;
-  }
-  if (!chainId) {
-    return <Missing>a chainId</Missing>;
+  if (!address || !chain || !chainId) {
+    return (
+      <div className="flex flex-col gap-8">
+        <Group title="User info">
+          <Card
+            style={{ gap: "1rem", display: "flex", flexDirection: "column" }}
+          >
+            Missing information required to display user info
+          </Card>
+        </Group>
+      </div>
+    );
   }
 
   return (
@@ -57,18 +58,6 @@ const MainConnected = () => {
                 subvariants={{ width: "full" }}
                 readOnly
               />
-              <SegmentedInput.Segment>
-                <ButtonLink
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://faucet.circle.com/"
-                  variant="tertiary"
-                  className="self-center flex-shrink-0"
-                >
-                  <Svg name="ExternalLink" width="16" />
-                  Get test currency
-                </ButtonLink>
-              </SegmentedInput.Segment>
             </SegmentedInput>
           </Field>
         </Card>
