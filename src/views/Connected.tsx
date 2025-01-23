@@ -16,7 +16,15 @@ export function Connected() {
           <Card
             style={{ gap: "1rem", display: "flex", flexDirection: "column" }}
           >
-            Missing information required to display user info
+            Missing information (
+            {[
+              !address ? "address" : null,
+              !chain ? "chain" : null,
+              !chainId ? "chainId" : null,
+            ]
+              .filter((n) => !!n)
+              .join(", ")}
+            ) required to display user info
           </Card>
         </Group>
       </div>

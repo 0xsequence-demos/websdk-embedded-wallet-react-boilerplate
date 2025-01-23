@@ -72,6 +72,7 @@ const TestVerifyMessage = (props: { chainId: number }) => {
   //   "signMessage",
   // );
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleVerifyMessage: FormHandler<Record<string, any>> = async (
     _,
     data,
