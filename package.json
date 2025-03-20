@@ -14,17 +14,12 @@
   "dependencies": {
     "0xsequence": "2.2.7",
     "@0xsequence/design-system": "^1.7.8",
-    "@0xsequence/indexer": "^2.0.11",
     "@0xsequence/kit": "^4.3.0",
-    "@0xsequence/network": "^2.0.11",
-    "@react-oauth/google": "^0.12.1",
     "@tanstack/react-query": "^5.59.0",
-    "boilerplate-design-system": "github:0xsequence-demos/boilerplate-design-system#08dfb9404fdaaa7fa80d55522f6552af4e811cd2",
+    "boilerplate-design-system": "github:0xsequence-demos/boilerplate-design-system#fed9fa2f7ecb904380c7b3e8550665af4be771ba",
     "ethers": "6.13.3",
     "react": "^18.3.1",
-    "react-apple-signin-auth": "^1.1.0",
     "react-dom": "^18.3.1",
-    "sonner": "^1.7.1",
     "viem": "^2.22.19",
     "wagmi": "^2.12.16",
     "zod": "^3.24.1"
