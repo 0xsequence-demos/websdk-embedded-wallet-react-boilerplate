@@ -1,4 +1,4 @@
-import { useOpenConnectModal } from "@0xsequence/kit";
+import { useOpenConnectModal } from "@0xsequence/connect";
 import { Button } from "boilerplate-design-system";
 
 export function NotConnected() {

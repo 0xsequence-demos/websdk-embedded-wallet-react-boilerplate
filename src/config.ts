@@ -1,4 +1,4 @@
-import { createConfig } from "@0xsequence/kit";
+import { createConfig } from "@0xsequence/connect";
 import { chainIdFromString, chainIdsFromString } from "./utils/chainIdUtils";
 
 const projectAccessKey = import.meta.env.VITE_PROJECT_ACCESS_KEY;

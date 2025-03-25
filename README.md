@@ -1,6 +1,6 @@
-# Sequence Kit Embedded Wallet React Starter Boilerplate
+# Sequence WebSDK Embedded Wallet React Starter Boilerplate
 
-Starter Sequence Embedded Wallet boilerplate that uses [Sequence Kit](https://github.com/0xsequence/kit) with React.
+Starter Sequence Embedded Wallet boilerplate that uses [Sequence WebSDK](https://github.com/0xsequence/web-sdk) with React.
 
 ## Quickstart
 

@@ -1,6 +1,5 @@
-import { SequenceKit } from "@0xsequence/kit";
+import { SequenceConnect } from "@0xsequence/connect";
 import { config } from "./config";
-import "@0xsequence/design-system/styles.css";
 
 import { useAccount, useDisconnect, useSwitchChain } from "wagmi";
 import { NotConnected } from "./views/NotConnected";
@@ -9,9 +8,9 @@ import { SequenceBoilerplate } from "boilerplate-design-system";
 
 export default function Layout() {
   return (
-    <SequenceKit config={config}>
+    <SequenceConnect config={config}>
       <App />
-    </SequenceKit>
+    </SequenceConnect>
   );
 }
 
@@ -20,7 +19,7 @@ function App() {
   return (
     <SequenceBoilerplate
       githubUrl="https://github.com/0xsequence-demos/kit-embedded-wallet-react-boilerplate"
-      name="Sequence Kit Starter - React"
+      name="Sequence Web SDK Starter - React"
       description="Embedded Wallet"
       wagmi={{ useAccount, useDisconnect, useSwitchChain }}
     >
