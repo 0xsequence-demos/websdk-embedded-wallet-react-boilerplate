@@ -72,8 +72,7 @@ const TestSendTransaction = (props: { chainId: number }) => {
             className="self-start disabled:opacity-50 contents-layered"
             disabled={isPending}
           >
-            <span data-visible={!isPending}>Send Test Transaction</span>
-            <span data-visible={isPending}>Sending...</span>
+            <span>{!isPending ? `Send Test Transaction` : `Sending...`}</span>
           </Button>
         </Form>
       </Card>
