@@ -1,5 +1,5 @@
 import { useOpenConnectModal } from "@0xsequence/connect";
-import { Button } from "boilerplate-design-system";
+import { Button } from "@0xsequence-demos/boilerplate-design-system";
 
 export function TestLinkWallet() {
   const { setOpenConnectModal } = useOpenConnectModal();

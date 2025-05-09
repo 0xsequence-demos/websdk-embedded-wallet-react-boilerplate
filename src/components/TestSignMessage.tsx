@@ -6,10 +6,10 @@ import {
   useStoreData,
   setStoreData,
   useForm,
-} from "boilerplate-design-system";
+} from "@0xsequence-demos/boilerplate-design-system";
 import { useAccount, useSignMessage } from "wagmi";
 import { SignableMessage } from "viem";
-import type { FormHandler } from "boilerplate-design-system";
+import type { FormHandler } from "@0xsequence-demos/boilerplate-design-system";
 import { z } from "zod";
 
 const schemaSignMessage = z.object({

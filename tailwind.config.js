@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import boilerplateConfig from "boilerplate-design-system/tailwind-config";
+import boilerplateConfig from "@0xsequence-demos/boilerplate-design-system/tailwind-config";
 
 export default {
   content: [
