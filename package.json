@@ -15,7 +15,6 @@
     "0xsequence": "2.3.9",
     "@0xsequence-demos/boilerplate-design-system": "^0.2.7",
     "@0xsequence/connect": "^5.3.26",
-    "@0xsequence/hooks": "^5.3.26",
     "@0xsequence/network": "^2.3.32",
     "@tanstack/react-query": "^5.74.7",
     "ethers": "6.13.7",
