@@ -7,7 +7,7 @@ import {
   Form,
   FormHandler,
   useStoreData,
-} from "boilerplate-design-system";
+} from "@0xsequence-demos/boilerplate-design-system";
 
 interface TxnRespose {
   hash: string;

@@ -4,7 +4,7 @@ import { config } from "./config";
 import { useAccount, useDisconnect, useSwitchChain } from "wagmi";
 import { NotConnected } from "./views/NotConnected";
 import { Connected } from "./views/Connected";
-import { SequenceBoilerplate } from "boilerplate-design-system";
+import { SequenceBoilerplate } from "@0xsequence-demos/boilerplate-design-system";
 
 export default function Layout() {
   return (

@@ -1,5 +1,5 @@
 {
-  "name": "kit-embedded-wallet-react-boilerplate",
+  "name": "websdk-embedded-wallet-react-boilerplate",
   "private": false,
   "version": "0.0.0",
   "type": "module",
@@ -13,10 +13,11 @@
   },
   "dependencies": {
     "0xsequence": "2.3.9",
-    "@0xsequence/connect": "^5.2.1",
-    "@0xsequence/network": "^2.3.9",
+    "@0xsequence-demos/boilerplate-design-system": "^0.2.7",
+    "@0xsequence/connect": "^5.3.26",
+    "@0xsequence/hooks": "^5.3.26",
+    "@0xsequence/network": "^2.3.32",
     "@tanstack/react-query": "^5.74.7",
-    "boilerplate-design-system": "github:0xsequence-demos/boilerplate-design-system#42564000bc8653348b1fb7d25885908faa5fa355",
     "ethers": "6.13.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
